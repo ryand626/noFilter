@@ -67,9 +67,9 @@ float contentHeight;
     float min_x = INFINITY;
     float min_y = INFINITY;
     
-
+    // Reset content position
     CGRect frame = contentView.frame;
-    frame.origin.y = postText.frame.size.height+postText.frame.origin.y;
+    frame.origin.y = postText.frame.size.height+postText.frame.origin.y+[Styles postElementSpacing];
     [contentView setFrame:frame];
     
     for (UIView *v in [view subviews]) {
@@ -133,6 +133,7 @@ float contentHeight;
     CGRect frame = [self frame];
     frame.size.width = [Styles postWidth];
     frame.origin.x = [Styles AppWidth]/2 - frame.size.width/2;
+    frame.size.height += [Styles postElementSpacing];
     [self setFrame:frame];
 }
 
