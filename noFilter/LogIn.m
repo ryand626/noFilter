@@ -24,7 +24,18 @@
     if ([Styles AppWidth] == 0) {
         [Styles setScreenWidth:[self.view bounds].size.width];
     }
-    UIView* backgroundView = [[UIView alloc]initWithFrame:CGRectMake([Styles AppWidth]*.1, [Styles AppHeight]*.1, [Styles AppWidth]*.8, [Styles AppHeight]*.8)];
+    
+    // Create Banner
+    UILabel* banner = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, [Styles AppWidth], [Styles headerHeight])];
+    [banner setText:@"~noFilter"];
+    [banner setTextColor:[Styles bannerTextColor]];
+    banner.textAlignment = NSTextAlignmentCenter;
+    banner.font = [UIFont systemFontOfSize:16];
+    banner.backgroundColor = [Styles mainColor];
+    [self.view addSubview:banner];
+    
+    
+    UIView* backgroundView = [[UIView alloc]initWithFrame:CGRectMake([Styles AppWidth]*.1, [Styles headerHeight]+10, [Styles AppWidth]*.8, [Styles AppHeight]*(1-[Styles loginContentOffset]*2))];
     [backgroundView setBackgroundColor:[Styles loginBackgroundColor]];
     [self.view addSubview:backgroundView];
 

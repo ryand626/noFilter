@@ -65,7 +65,14 @@
     postCreator = [[UIView alloc]initWithFrame:CGRectMake([Styles AppWidth]/2-[Styles postWidth]/2, [Styles postSpacing], [Styles postWidth], [Styles postMakerHeight])];
     postCreator.layer.cornerRadius=[Styles textRound];
     postCreator.clipsToBounds = YES;
-    [postCreator setBackgroundColor:[Styles mainColor]];
+    
+    UIImageView *backgroundIMG = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"burlap.jpg"]];
+    backgroundIMG.contentMode = UIViewContentModeScaleAspectFill;
+    backgroundIMG.frame = postCreator.frame;
+    
+    
+    [postCreator addSubview:backgroundIMG];
+    [postCreator setBackgroundColor:[UIColor colorWithPatternImage:backgroundIMG.image]];
     [PostTable addSubview:postCreator];
     
     [self populateFeed]; // Fill in the Feed
@@ -117,7 +124,7 @@
     // Log out button
     logout = [[UIButton alloc]initWithFrame:CGRectMake([Styles AppWidth]-[Styles buttonWidth], [Styles headerHeight]-[Styles buttonHeight], [Styles buttonWidth], [Styles buttonHeight])];
     [logout addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [logout setBackgroundColor:[Styles buttonColor]];
+//    [logout setBackgroundColor:[Styles buttonColor]];
     [logout setTitle:@"Log Out" forState:UIControlStateNormal];
     [logout sizeToFit];
     [logout setFrame:CGRectMake([Styles AppWidth]-logout.frame.size.width, [Styles headerHeight]-logout.frame.size.height, logout.frame.size.width, logout.frame.size.height)];

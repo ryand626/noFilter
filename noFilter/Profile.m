@@ -119,7 +119,10 @@
     // Log out button
     logout = [[UIButton alloc]initWithFrame:CGRectMake([Styles AppWidth]-[Styles buttonWidth], [Styles headerHeight]-[Styles buttonHeight], [Styles buttonWidth], [Styles buttonHeight])];
     [logout addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [logout setBackgroundColor:[Styles buttonColor]];
+    //    [logout setBackgroundColor:[Styles buttonColor]];
+    [logout setTitle:@"Log Out" forState:UIControlStateNormal];
+    [logout sizeToFit];
+    [logout setFrame:CGRectMake([Styles AppWidth]-logout.frame.size.width, [Styles headerHeight]-logout.frame.size.height, logout.frame.size.width, logout.frame.size.height)];
     [self.view addSubview:logout];
 }
 

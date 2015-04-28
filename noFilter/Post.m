@@ -47,6 +47,9 @@ float contentHeight;
     
     [self addSubview:background];
     [self setBackgroundColor:[UIColor colorWithPatternImage:background.image]];
+    
+    self.layer.cornerRadius=[Styles textRound];
+    self.clipsToBounds = YES;
 }
 
 - (id)initWithFrame:(CGRect)aRect{

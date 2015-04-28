@@ -18,7 +18,7 @@ static float screenHeight = 0;
     return [UIColor whiteColor];
 }
 +(UIColor*)buttonColor{
-    return [UIColor blackColor];
+    return [UIColor brownColor];
 }
 +(UIColor*)postColor{
     return [UIColor brownColor];
