@@ -13,7 +13,7 @@
 @interface Feed : UIViewController 
 {
     // ==============User interface================
-    UILabel* banner;
+    UIButton* banner;
     
     UIButton* logout;
     

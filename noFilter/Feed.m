@@ -27,12 +27,13 @@
     
     
     // Create Banner
-    banner = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, [Styles AppWidth], [Styles headerHeight])];
-    [banner setText:@"~noFilter"];
-    [banner setTextColor:[Styles bannerTextColor]];
-    banner.textAlignment = NSTextAlignmentCenter;
-    banner.font = [UIFont systemFontOfSize:16];
+    banner = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, [Styles AppWidth], [Styles headerHeight])];
+    [banner setTitle:@"~noFilter" forState:UIControlStateNormal];
+    [banner setTitleColor:[Styles bannerTextColor] forState:UIControlStateNormal];
+    banner.titleLabel.textAlignment = NSTextAlignmentCenter;
+    banner.titleLabel.font = [UIFont systemFontOfSize:16];
     banner.backgroundColor = [Styles mainColor];
+    [banner addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:banner];
     
 
@@ -136,12 +137,14 @@
     if (sender == logout){
         UIViewController * vc = [[LogIn alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
-    }
-    if(sender == UIPostMaker->makePost){
+    }else if(sender == UIPostMaker->makePost){
         if(UIPostMaker->newPost != nil){
             [self populateFeed];
             UIPostMaker->newPost = nil;
         }
+    }else if (sender == banner){
+        UIViewController * vc = [[Feed alloc] init];
+        [self presentViewController:vc animated:NO completion:nil];
     }else{
         UIViewController * vc = [[Profile alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
