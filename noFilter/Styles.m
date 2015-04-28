@@ -23,6 +23,12 @@ static float screenHeight = 0;
 +(UIColor*)postColor{
     return [UIColor brownColor];
 }
++(UIColor*)buttonFontColor{
+    return [UIColor whiteColor];
+}
++(UIColor*)loginBackgroundColor{
+    return [UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:.5f];
+}
 
 // Dimentions
 +(int)buttonWidth{
@@ -83,8 +89,34 @@ static float screenHeight = 0;
     return screenWidth*.1;
 }
 
++(float)profilePicOffsetX{
+    return screenWidth/2-[self profilePicWidth]/2;
+}
++(float)profilePicOffsetY{
+    return screenHeight*.05;
+}
++(float)profilePicWidth{
+    return screenWidth * (1.0/3);
+}
++(float)profilePicHeight{
+    return screenWidth * (1.0/3);
+}
++(float)loginFormHeight{
+    return screenHeight * .1;
+}
+
+
 
 // Padding
++(float)loginFormOffset{
+    return .1;
+}
++(float)loginContentOffset{
+    return .2;
+}
++(float)loginFormPadding{
+    return .9;
+}
 +(int)postSpacing{
     return 10;
 }
@@ -93,6 +125,26 @@ static float screenHeight = 0;
 }
 +(float)postElementSpacing{
     return 10;
+}
++(float)buttonPadding{
+    return 1.2;
+}
+
+// Rounding
++(float)buttonRound{
+    return 5;
+}
+
+// Points
++(CGPoint)loginFieldsPt{
+    return CGPointMake(screenWidth/2, screenHeight*([self loginFormOffset]));
+}
+
++(CGPoint)loginButtonsPt{
+    return CGPointMake(screenWidth/2 + [self loginFormOffset]*screenWidth, [self loginFieldsPt].y+2*([self loginFormHeight]+screenHeight*[self loginFormOffset]));
+}
++(CGPoint)signUpButtonPt{
+    return CGPointMake([self loginFormOffset]*screenWidth, [self loginFieldsPt].y+2*([self loginFormHeight]+screenHeight*[self loginFormOffset]));
 }
 
 

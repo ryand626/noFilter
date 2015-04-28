@@ -15,6 +15,8 @@
 +(UIColor*)backgroundColor;
 +(UIColor*)buttonColor;
 +(UIColor*)postColor;
++(UIColor*)buttonFontColor;
++(UIColor*)loginBackgroundColor;
 
 // Dimentions
 +(void)setScreenWidth:(int)width;
@@ -43,10 +45,27 @@
 +(float)textInputWidth;
 +(float)textInputHeight;
 
++(float)profilePicOffsetX;
++(float)profilePicOffsetY;
++(float)profilePicWidth;
++(float)profilePicHeight;
+
++(float)loginFormHeight;
+
 // Padding
++(float)loginContentOffset;
++(float)loginFormPadding;
++(float)loginFormOffset;
 +(int)postSpacing;
 +(int)contentSpacing;
 +(float)postElementSpacing;
++(float)buttonPadding;
 
+// Rounding
++(float)buttonRound;
 
+// Points
++(CGPoint)loginFieldsPt;
++(CGPoint)loginButtonsPt;
++(CGPoint)signUpButtonPt;
 @end

@@ -24,8 +24,8 @@ float contentHeight;
     [userImage setBackgroundImage:profilePicture forState:UIControlStateNormal];
     userImage.layer.cornerRadius=[Styles userButtonSize]/2;
     userImage.clipsToBounds = YES;
-    [userImage setBackgroundColor:[UIColor redColor]];
-    [userImage addTarget:self action:@selector(loadUserPage:) forControlEvents:UIControlEventTouchUpInside];
+    [userImage setBackgroundColor:[UIColor blackColor]];
+    userImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
     [self addSubview:userImage];
     offset += ([Styles userButtonSize] + [Styles postElementSpacing]);
 
@@ -44,7 +44,15 @@ float contentHeight;
     
     // For Debug
     [postText setBackgroundColor:[UIColor yellowColor]];
-    [self setBackgroundColor:[UIColor cyanColor]];
+    
+    UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"burlap.jpg"]];
+    background.contentMode = UIViewContentModeScaleAspectFill;
+    background.frame = self.frame;
+    [background setBackgroundColor:[UIColor redColor]];
+    
+    [self addSubview:background];
+    [self setBackgroundColor:[UIColor colorWithPatternImage:background.image]];
+//    [self sendSubviewToBack:background];
 }
 
 - (id)initWithFrame:(CGRect)aRect{
@@ -61,9 +69,10 @@ float contentHeight;
     return self;
 }
 
--(IBAction)loadUserPage:(UIButton *)sender{
-    NSLog(@"LOADING USER");
-}
+//-(IBAction)loadUserPage:(UIButton *)sender{
+//    UIViewController * vc = [[Profile alloc] init];
+//    [self presentViewController:vc animated:YES completion:nil];
+//}
 
 -(void)resizeToFitSubviews:(UIView*)view{
     float w = 0;
@@ -98,6 +107,7 @@ float contentHeight;
 -(void)setUser:(int)userID{
     user = userID;
     profilePicture = [UIImage imageNamed:@"Fallout.jpg"];
+    
     [userImage setImage:profilePicture forState:UIControlStateNormal];
 }
 -(void)setText:(NSString*)newText{

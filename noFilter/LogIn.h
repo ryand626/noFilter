@@ -10,6 +10,13 @@
 
 @interface LogIn : UIViewController{
     UIButton* login;
+    UIButton* signup;
+    
+    UILabel* nameLabel;
+    UILabel* passwordLabel;
+    
+    UITextField* userName;
+    UITextField* password;
 }
 
 @end

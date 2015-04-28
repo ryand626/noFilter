@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+     
     inputImages = [[NSMutableArray alloc]initWithObjects: nil];
     
     newPost = nil;
@@ -65,7 +65,7 @@
 
 -(IBAction)post:(id)sender{
     // If the post is valid, generate a new post object
-    if (inputField.text != nil || [inputImages count] != 0) {
+    if (inputField.text.length != 0 || [inputImages count] > 0) {
         newPost = [[Post alloc]initWithFrame:CGRectZero];
         [newPost setText:inputField.text];
         [newPost setUser:1];

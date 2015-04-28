@@ -8,6 +8,7 @@
 
 #import "Styles.h"
 #import "PostMaker.h"
+#import "Profile.h"
 
 @interface Feed : UIViewController 
 {

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface Post : UIView{
     int user;
     UIImage* profilePicture;
@@ -16,7 +17,7 @@
 
     UILabel* postText;         // to show the text
     UIScrollView* contentView; // to show the content
-    UIButton* userImage;       // to show the user profile
+    @public UIButton* userImage;       // to show the user profile
 }
 
 -(void)setUser:(int)userID;

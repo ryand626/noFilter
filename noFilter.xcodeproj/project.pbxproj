@@ -16,9 +16,12 @@
 		941BAD1E1AEDB4CA00A2D124 /* noFilterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 941BAD1D1AEDB4CA00A2D124 /* noFilterTests.m */; };
 		941BAD2B1AEDB78300A2D124 /* Feed.m in Sources */ = {isa = PBXBuildFile; fileRef = 941BAD2A1AEDB78300A2D124 /* Feed.m */; };
 		941BAD311AEDC26500A2D124 /* Styles.m in Sources */ = {isa = PBXBuildFile; fileRef = 941BAD301AEDC26500A2D124 /* Styles.m */; };
+		9437D8811AEF70790030B2C1 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9437D8801AEF70790030B2C1 /* bg.jpg */; };
+		9437D8831AEF85D20030B2C1 /* burlap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9437D8821AEF85D20030B2C1 /* burlap.jpg */; };
 		949483DD1AEDF25D00294372 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 949483DC1AEDF25D00294372 /* Post.m */; };
 		949483DF1AEE126B00294372 /* Fallout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 949483DE1AEE126B00294372 /* Fallout.jpg */; };
 		94A638921AEF07BD00FB3D3E /* PostMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A638911AEF07BD00FB3D3E /* PostMaker.m */; };
+		94A638951AEF485500FB3D3E /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A638941AEF485500FB3D3E /* Profile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,11 +52,15 @@
 		941BAD2A1AEDB78300A2D124 /* Feed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feed.m; sourceTree = "<group>"; };
 		941BAD2F1AEDC26500A2D124 /* Styles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Styles.h; sourceTree = "<group>"; };
 		941BAD301AEDC26500A2D124 /* Styles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Styles.m; sourceTree = "<group>"; };
+		9437D8801AEF70790030B2C1 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		9437D8821AEF85D20030B2C1 /* burlap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = burlap.jpg; sourceTree = "<group>"; };
 		949483DB1AEDF25D00294372 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		949483DC1AEDF25D00294372 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		949483DE1AEE126B00294372 /* Fallout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallout.jpg; sourceTree = "<group>"; };
 		94A638901AEF07BD00FB3D3E /* PostMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostMaker.h; sourceTree = "<group>"; };
 		94A638911AEF07BD00FB3D3E /* PostMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostMaker.m; sourceTree = "<group>"; };
+		94A638931AEF485500FB3D3E /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		94A638941AEF485500FB3D3E /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +103,12 @@
 			isa = PBXGroup;
 			children = (
 				949483DE1AEE126B00294372 /* Fallout.jpg */,
+				9437D8801AEF70790030B2C1 /* bg.jpg */,
+				9437D8821AEF85D20030B2C1 /* burlap.jpg */,
 				941BAD2F1AEDC26500A2D124 /* Styles.h */,
 				941BAD301AEDC26500A2D124 /* Styles.m */,
+				94A638931AEF485500FB3D3E /* Profile.h */,
+				94A638941AEF485500FB3D3E /* Profile.m */,
 				941BAD051AEDB4CA00A2D124 /* AppDelegate.h */,
 				941BAD061AEDB4CA00A2D124 /* AppDelegate.m */,
 				941BAD081AEDB4CA00A2D124 /* LogIn.h */,
@@ -222,10 +233,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9437D8811AEF70790030B2C1 /* bg.jpg in Resources */,
 				941BAD0D1AEDB4CA00A2D124 /* Main.storyboard in Resources */,
 				949483DF1AEE126B00294372 /* Fallout.jpg in Resources */,
 				941BAD121AEDB4CA00A2D124 /* LaunchScreen.xib in Resources */,
 				941BAD0F1AEDB4CA00A2D124 /* Images.xcassets in Resources */,
+				9437D8831AEF85D20030B2C1 /* burlap.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +261,7 @@
 				941BAD311AEDC26500A2D124 /* Styles.m in Sources */,
 				941BAD2B1AEDB78300A2D124 /* Feed.m in Sources */,
 				941BAD071AEDB4CA00A2D124 /* AppDelegate.m in Sources */,
+				94A638951AEF485500FB3D3E /* Profile.m in Sources */,
 				94A638921AEF07BD00FB3D3E /* PostMaker.m in Sources */,
 				941BAD041AEDB4CA00A2D124 /* main.m in Sources */,
 			);
