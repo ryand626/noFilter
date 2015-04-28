@@ -10,6 +10,7 @@
 #import "Styles.h"
 #import "Post.h"
 #import "LogIn.h"
+#import "Feed.h"
 
 @interface Profile : UIViewController{
     UIButton* logout;

@@ -21,10 +21,10 @@
     
     newPost = nil;
     
-    previewImages = [[UIScrollView alloc]initWithFrame:CGRectMake(0, [Styles thumbnailPreviewOffset]+[Styles textInputHeight], [Styles postWidth], [Styles thumbnailSize])];
+    previewImages = [[UIScrollView alloc]initWithFrame:CGRectMake([Styles postWidth]/2-[Styles textInputWidth]/2, [Styles postMakerHeight]/2-[Styles thumbnailSize]/2, [Styles textInputWidth], [Styles thumbnailSize])];
     [self.view addSubview:previewImages];
     
-    inputField = [[UITextField alloc]initWithFrame:CGRectMake([Styles postWidth]/2-[Styles textInputWidth]/2, [Styles thumbnailPreviewOffset], [Styles textInputWidth], [Styles textInputHeight])];
+    inputField = [[UITextField alloc]initWithFrame:CGRectMake([Styles postWidth]/2-[Styles textInputWidth]/2, [Styles postSpacing], [Styles textInputWidth], [Styles textInputHeight])];
     [inputField setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:inputField];
     
@@ -47,14 +47,25 @@
 
 -(void)createButtons{
     // Button for adding a new image
-    addImage = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, [Styles buttonWidth], [Styles buttonHeight])];
+    addImage = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 0, [Styles buttonHeight])];
+    [addImage setTitle:@"Add Image" forState:UIControlStateNormal];
+    [addImage sizeToFit];
     [addImage addTarget:self action:@selector(selectPhoto:) forControlEvents:UIControlEventTouchUpInside];
     [addImage setBackgroundColor:[Styles buttonColor]];
+    [addImage setFrame: CGRectMake([Styles postSpacing], [Styles postMakerHeight]-addImage.frame.size.height-[Styles postSpacing], addImage.frame.size.width, addImage.frame.size.height)];
+    addImage.layer.cornerRadius=[Styles buttonRound];
+    addImage.clipsToBounds = YES;
     [self.view addSubview:addImage];
+    
     // Button for making a post
-    makePost = [[UIButton alloc]initWithFrame:CGRectMake([Styles postWidth]-[Styles buttonWidth], [Styles postMakerHeight]-[Styles buttonHeight],[Styles buttonWidth],[Styles buttonHeight])];
+    makePost = [[UIButton alloc] init];
+    [makePost setTitle:@"~noFilter" forState:UIControlStateNormal];
+    [makePost sizeToFit];
     [makePost addTarget:self action:@selector(post:) forControlEvents:UIControlEventTouchUpInside];
     [makePost setBackgroundColor:[Styles buttonColor]];
+    [makePost setFrame: CGRectMake([Styles postWidth]-makePost.frame.size.width-[Styles postSpacing], [Styles postMakerHeight]-makePost.frame.size.height-[Styles postSpacing],makePost.frame.size.width,makePost.frame.size.height)];
+    makePost.layer.cornerRadius=[Styles buttonRound];
+    makePost.clipsToBounds = YES;
     [self.view addSubview:makePost];
 }
 

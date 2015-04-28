@@ -16,12 +16,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg.jpg"]];
+    background.contentMode = UIViewContentModeScaleAspectFill;
+    background.frame = self.view.frame;
+    
+    [self.view addSubview:background];
+    [self.view sendSubviewToBack:background];
+    
     // Create Banner
     banner = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, [Styles AppWidth], [Styles headerHeight])];
     [banner setTitle:@"~noFilter" forState:UIControlStateNormal];
     banner.titleLabel.textAlignment = NSTextAlignmentCenter;
     banner.titleLabel.font = [UIFont systemFontOfSize:16];
-    banner.backgroundColor = [UIColor blueColor];
+    banner.backgroundColor = [Styles mainColor];
     [banner addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:banner];
     
@@ -35,6 +42,7 @@
     
     userName = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
     userName.text = @"Alexandria's Profile";
+    [userName setTextColor:[UIColor whiteColor]];
     [userName sizeToFit];
     CGRect frame = userName.frame;
     frame.origin.x = [Styles AppWidth]/2 - userName.frame.size.width/2;
@@ -96,7 +104,6 @@
         offset += [posts[i] frame].size.height + [Styles postSpacing];
     }
     
-    [PostTable setBackgroundColor:[UIColor brownColor]];
     PostTable.contentSize=CGSizeMake(PostTable.frame.size.width,offset + [Styles postSpacing]);
 }
 

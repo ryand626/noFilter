@@ -17,7 +17,11 @@
 +(UIColor*)postColor;
 +(UIColor*)buttonFontColor;
 +(UIColor*)loginBackgroundColor;
-
++(UIColor*)postTextBackgroundColor;
++(UIColor*)postContentBackgroundColor;
++(UIColor*)contentBackgroundColor;
++(UIColor*)mainColor;
++(UIColor*)bannerTextColor;
 // Dimentions
 +(void)setScreenWidth:(int)width;
 +(void)setScreenHeight:(int)height;
@@ -63,6 +67,7 @@
 
 // Rounding
 +(float)buttonRound;
++(float)textRound;
 
 // Points
 +(CGPoint)loginFieldsPt;

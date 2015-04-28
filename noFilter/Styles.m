@@ -29,6 +29,23 @@ static float screenHeight = 0;
 +(UIColor*)loginBackgroundColor{
     return [UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:.5f];
 }
++(UIColor*)postTextBackgroundColor{
+    return [UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:.5f];
+}
++(UIColor*)postContentBackgroundColor{
+    return [UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:.5f];
+}
++(UIColor*)contentBackgroundColor{
+    return [UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:.5f];
+}
++(UIColor*)mainColor{
+    return [UIColor colorWithRed:.1f green:.2f blue:.9f alpha:1.0f];
+}
++(UIColor*)bannerTextColor{
+    return [UIColor whiteColor];
+}
+
+
 
 // Dimentions
 +(int)buttonWidth{
@@ -77,7 +94,7 @@ static float screenHeight = 0;
     return screenWidth * .1;
 }
 +(float)postMakerHeight{
-    return screenHeight * .20;
+    return screenHeight * .30;
 }
 +(float)thumbnailPreviewOffset{
     return screenWidth * .1;
@@ -132,6 +149,9 @@ static float screenHeight = 0;
 
 // Rounding
 +(float)buttonRound{
+    return 5;
+}
++(float)textRound{
     return 5;
 }
 

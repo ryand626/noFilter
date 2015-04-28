@@ -37,22 +37,16 @@ float contentHeight;
     
     // Add the image content
     contentView = [[UIScrollView alloc]initWithFrame:CGRectMake(([Styles AppWidth]-[Styles postWidth])/2, 0, [Styles postElementWidth], 0)];
-    [contentView setBackgroundColor:[UIColor greenColor]];
+    [contentView setBackgroundColor:[Styles postContentBackgroundColor]];
     contentView.contentSize = CGSizeMake([Styles postElementWidth], contentHeight);
     [self addSubview:contentView];
-    
-    
-    // For Debug
-    [postText setBackgroundColor:[UIColor yellowColor]];
     
     UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"burlap.jpg"]];
     background.contentMode = UIViewContentModeScaleAspectFill;
     background.frame = self.frame;
-    [background setBackgroundColor:[UIColor redColor]];
     
     [self addSubview:background];
     [self setBackgroundColor:[UIColor colorWithPatternImage:background.image]];
-//    [self sendSubviewToBack:background];
 }
 
 - (id)initWithFrame:(CGRect)aRect{
@@ -114,7 +108,7 @@ float contentHeight;
     text = newText;
     [postText setText:text];
     [postText sizeToFit]; // Reset the frame of the label
-    
+
     [self resizeToFitSubviews:self]; // Reset the frame of the post
     
     // Center the resized text
@@ -122,6 +116,18 @@ float contentHeight;
     frame.size.width = [Styles postWidth];
     frame.origin.x = [Styles AppWidth]/2 - frame.size.width/2;
     [self setFrame:frame];
+    
+    UIView* textBackground = [[UIView alloc]initWithFrame:postText.frame];
+    frame = textBackground.frame;
+    frame.size.width = [Styles postElementWidth];
+    textBackground.frame = frame;
+    [textBackground setBackgroundColor:[Styles postTextBackgroundColor]];
+    textBackground.layer.cornerRadius=[Styles textRound];
+    textBackground.clipsToBounds = YES;
+    [self addSubview:textBackground];
+    [self sendSubviewToBack:textBackground];
+    
+    
     
     [self centerView:postText withParent:[self frame].size.width];
 }
@@ -135,9 +141,9 @@ float contentHeight;
     UIImageView* imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, contentHeight, [Styles contentMaxWidth], [Styles contentMaxWidth])];
 
     [self centerView:imageView withParent:contentView.frame.size.width];
-    [imageView setBackgroundColor:[UIColor orangeColor]];
+    
     imageView.contentMode = UIViewContentModeScaleAspectFit;
-//    imageView.clipsToBounds = YES;
+    [imageView setBackgroundColor:[Styles contentBackgroundColor]];
     [imageView setImage:image];
 
     [contentView addSubview:imageView];

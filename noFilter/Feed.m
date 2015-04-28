@@ -18,12 +18,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImageView *background = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg.jpg"]];
+    background.contentMode = UIViewContentModeScaleAspectFill;
+    background.frame = self.view.frame;
+    
+    [self.view addSubview:background];
+    [self.view sendSubviewToBack:background];
+    
+    
     // Create Banner
     banner = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, [Styles AppWidth], [Styles headerHeight])];
     [banner setText:@"~noFilter"];
+    [banner setTextColor:[Styles bannerTextColor]];
     banner.textAlignment = NSTextAlignmentCenter;
     banner.font = [UIFont systemFontOfSize:16];
-    banner.backgroundColor = [UIColor blueColor];
+    banner.backgroundColor = [Styles mainColor];
     [self.view addSubview:banner];
     
 
@@ -54,7 +63,9 @@
     [self.view addSubview:PostTable];
 
     postCreator = [[UIView alloc]initWithFrame:CGRectMake([Styles AppWidth]/2-[Styles postWidth]/2, [Styles postSpacing], [Styles postWidth], [Styles postMakerHeight])];
-    [postCreator setBackgroundColor:[UIColor purpleColor]];
+    postCreator.layer.cornerRadius=[Styles textRound];
+    postCreator.clipsToBounds = YES;
+    [postCreator setBackgroundColor:[Styles mainColor]];
     [PostTable addSubview:postCreator];
     
     [self populateFeed]; // Fill in the Feed
@@ -91,7 +102,6 @@
         offset += [posts[i] frame].size.height + [Styles postSpacing];
     }
 
-    [PostTable setBackgroundColor:[UIColor magentaColor]];
     PostTable.contentSize=CGSizeMake(PostTable.frame.size.width,offset + [Styles postSpacing]);
 }
 
@@ -108,6 +118,9 @@
     logout = [[UIButton alloc]initWithFrame:CGRectMake([Styles AppWidth]-[Styles buttonWidth], [Styles headerHeight]-[Styles buttonHeight], [Styles buttonWidth], [Styles buttonHeight])];
     [logout addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [logout setBackgroundColor:[Styles buttonColor]];
+    [logout setTitle:@"Log Out" forState:UIControlStateNormal];
+    [logout sizeToFit];
+    [logout setFrame:CGRectMake([Styles AppWidth]-logout.frame.size.width, [Styles headerHeight]-logout.frame.size.height, logout.frame.size.width, logout.frame.size.height)];
     [self.view addSubview:logout];
 }
 
