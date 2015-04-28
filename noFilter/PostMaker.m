@@ -16,10 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    newPost = nil;
-    previewImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, [Styles thumbnailPreviewOffset], [Styles thumbnailSize], [Styles thumbnailSize])];
-    [self.view addSubview:previewImage];
     
+    inputImages = [[NSMutableArray alloc]initWithObjects: nil];
+    
+    newPost = nil;
+    
+    previewImages = [[UIScrollView alloc]initWithFrame:CGRectMake(0, [Styles thumbnailPreviewOffset]+[Styles textInputHeight], [Styles postWidth], [Styles thumbnailSize])];
+    [self.view addSubview:previewImages];
+    
+    inputField = [[UITextField alloc]initWithFrame:CGRectMake([Styles postWidth]/2-[Styles textInputWidth]/2, [Styles thumbnailPreviewOffset], [Styles textInputWidth], [Styles textInputHeight])];
+    [inputField setBackgroundColor:[UIColor whiteColor]];
+    [self.view addSubview:inputField];
     
     [self createButtons];
     
@@ -39,12 +46,12 @@
 }
 
 -(void)createButtons{
-    // Add image button
+    // Button for adding a new image
     addImage = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, [Styles buttonWidth], [Styles buttonHeight])];
     [addImage addTarget:self action:@selector(selectPhoto:) forControlEvents:UIControlEventTouchUpInside];
     [addImage setBackgroundColor:[Styles buttonColor]];
     [self.view addSubview:addImage];
-    
+    // Button for making a post
     makePost = [[UIButton alloc]initWithFrame:CGRectMake([Styles postWidth]-[Styles buttonWidth], [Styles postMakerHeight]-[Styles buttonHeight],[Styles buttonWidth],[Styles buttonHeight])];
     [makePost addTarget:self action:@selector(post:) forControlEvents:UIControlEventTouchUpInside];
     [makePost setBackgroundColor:[Styles buttonColor]];
@@ -56,27 +63,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 -(IBAction)post:(id)sender{
-    if (inputField.text != nil || inputImage != nil) {
+    // If the post is valid, generate a new post object
+    if (inputField.text != nil || [inputImages count] != 0) {
         newPost = [[Post alloc]initWithFrame:CGRectZero];
         [newPost setText:inputField.text];
         [newPost setUser:1];
-        [newPost addContent:inputImage];
+        for (UIImage* image in inputImages) {
+            [newPost addContent:image];
+        }
         [posts insertObject:newPost atIndex:0];
-        
     }
+    // Clean up the fields
     inputField.text = nil;
-    inputImage = nil;
-    previewImage.image = nil;
+    [inputImages removeAllObjects];
+    for (UIView* view in [previewImages subviews]) {
+        [view removeFromSuperview];
+    }
 }
 
 // FOR ADDING IMAGES
@@ -91,12 +94,13 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    inputImage = chosenImage;
-    [previewImage setImage:chosenImage];
     
-    // previewImage.frame = CGRectMake(0, 0, [Styles AppWidth], [Styles AppHeight]);
-    [previewImage setBackgroundColor:[UIColor redColor]];
-    //    [self.view addSubview:previewImage];
+    // Add the image to the preview
+    [inputImages addObject:chosenImage];
+    UIImageView* newImage = [[UIImageView alloc]initWithFrame:CGRectMake([Styles thumbnailSize]*([inputImages count]-1), 0, [Styles thumbnailSize], [Styles thumbnailSize])];
+    [newImage setImage:chosenImage];
+    previewImages.contentSize = CGSizeMake([Styles thumbnailSize]*[inputImages count], [Styles thumbnailSize]);
+    [previewImages addSubview:newImage];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }

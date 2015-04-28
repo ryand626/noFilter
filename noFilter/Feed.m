@@ -111,7 +111,6 @@
 
 -(void) buttonClicked:(UIButton*)sender{
     // Switch views
-    NSLog(@"%d",[posts count]);
     if (sender == logout){
         UIViewController * vc = [[LogIn alloc] init];
         [self presentViewController:vc animated:YES completion:nil];

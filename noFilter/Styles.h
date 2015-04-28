@@ -40,6 +40,8 @@
 +(float)thumbnailSize;
 +(float)postMakerHeight;
 +(float)thumbnailPreviewOffset;
++(float)textInputWidth;
++(float)textInputHeight;
 
 // Padding
 +(int)postSpacing;

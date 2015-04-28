@@ -76,6 +76,14 @@ static float screenHeight = 0;
 +(float)thumbnailPreviewOffset{
     return screenWidth * .1;
 }
++(float)textInputWidth{
+    return [self postWidth]*.9;
+}
++(float)textInputHeight{
+    return screenWidth*.1;
+}
+
+
 // Padding
 +(int)postSpacing{
     return 10;

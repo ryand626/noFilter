@@ -14,8 +14,10 @@
     UIButton* addImage;
     @public UIButton* makePost;
     UITextField* inputField;
-    UIImage* inputImage;
+    NSMutableArray* inputImages;
     UIImageView* previewImage;
+    
+    UIScrollView* previewImages;
     
     @public NSMutableArray* posts;
     @public Post* newPost;
