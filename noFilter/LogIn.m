@@ -35,22 +35,31 @@
     [self.view addSubview:background];
     [self.view sendSubviewToBack:background];
     
-    nameLabel = [[UILabel alloc]initWithFrame:CGRectMake([Styles AppWidth]*[Styles loginContentOffset], [Styles AppHeight]*[Styles loginContentOffset], [Styles AppWidth], [Styles loginFormHeight])];
+    nameLabel = [[UILabel alloc]initWithFrame:CGRectMake([Styles AppWidth]*[Styles loginContentOffset], [Styles AppHeight]*[Styles loginContentOffset], [Styles AppWidth]*.8, [Styles loginFormHeight])];
     nameLabel.text = @"Username";
-    [nameLabel sizeToFit];
-    [nameLabel setBackgroundColor:[UIColor redColor]];
+    passwordLabel.textAlignment = NSTextAlignmentLeft;
     [self.view addSubview:nameLabel];
-    
-    userName = [[UITextField alloc]initWithFrame:CGRectMake([Styles AppWidth]*[Styles loginContentOffset], [Styles AppHeight]*[Styles loginContentOffset]*2, [Styles AppWidth]*(2*[Styles loginFormOffset]), [Styles loginFormHeight])];
+ 
+    userName = [[UITextField alloc]initWithFrame:CGRectMake([Styles AppWidth]*[Styles loginContentOffset], [Styles AppHeight]*[Styles loginContentOffset]+[Styles loginFormHeight], [Styles AppWidth]*.6, [Styles loginFormHeight])];
     [userName setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:userName];
+    
+    passwordLabel = [[UILabel alloc]initWithFrame:CGRectMake([Styles AppWidth]*[Styles loginContentOffset], [Styles AppHeight]*[Styles loginContentOffset]+[Styles loginFormHeight]*2, [Styles AppWidth]*.8, [Styles loginFormHeight])];
+    passwordLabel.text = @"Password";
+    passwordLabel.textAlignment = NSTextAlignmentLeft;
+    [self.view addSubview:passwordLabel];
+    
 
-    password = [[UITextField alloc]initWithFrame:CGRectMake([Styles AppWidth]*.2, [Styles AppHeight]*.4, [Styles AppWidth]*.6, [Styles loginFormHeight])];
+
+    password = [[UITextField alloc]initWithFrame:CGRectMake([Styles AppWidth]*[Styles loginContentOffset], [Styles AppHeight]*[Styles loginContentOffset]+[Styles loginFormHeight]*3, [Styles AppWidth]*.6, [Styles loginFormHeight])];
     [password setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:password];
     
-    login = [self createButton:login withTitle:@"Log In" atPoint:[Styles loginButtonsPt]];
-    signup = [self createButton:signup withTitle:@"Sign Up" atPoint:[Styles signUpButtonPt]];
+    login = [self createButton:login withTitle:@"Log In"];
+    login.frame = CGRectMake(backgroundView.frame.origin.x+backgroundView.frame.size.width-login.frame.size.width-[Styles AppWidth]*[Styles loginContentOffset]/2, backgroundView.frame.origin.y+backgroundView.frame.size.height-login.frame.size.height-[Styles AppWidth]*[Styles loginContentOffset]/2, login.frame.size.width, login.frame.size.height);
+    
+    signup = [self createButton:signup withTitle:@"Sign Up"];
+    signup.frame = CGRectMake(backgroundView.frame.origin.x+[Styles AppWidth]*[Styles loginContentOffset]/2, backgroundView.frame.origin.y+backgroundView.frame.size.height-signup.frame.size.height-[Styles AppWidth]*[Styles loginContentOffset]/2, signup.frame.size.width, signup.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,10 +71,10 @@
     
 }
 
--(UIButton*)createButton:(UIButton*)Button withTitle:(NSString*)title atPoint:(CGPoint)point{
+-(UIButton*)createButton:(UIButton*)Button withTitle:(NSString*)title{
     // Log in Button
 
-    Button = [[UIButton alloc]initWithFrame:CGRectMake(point.x, point.y, [Styles buttonWidth], [Styles buttonHeight])];
+    Button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, [Styles buttonWidth], [Styles buttonHeight])];
     [Button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [Button setBackgroundColor:[Styles buttonColor]];
     [Button setTitle:title forState:UIControlStateNormal];
