@@ -108,9 +108,13 @@
     
     // Add the image to the preview
     [inputImages addObject:chosenImage];
-    UIImageView* newImage = [[UIImageView alloc]initWithFrame:CGRectMake([Styles thumbnailSize]*([inputImages count]-1), 0, [Styles thumbnailSize], [Styles thumbnailSize])];
+    UIImageView* newImage = [[UIImageView alloc]initWithFrame:CGRectMake([Styles thumbnailSize]*([inputImages count]-1)+2*([inputImages count]-1), 0, [Styles thumbnailSize], [Styles thumbnailSize])];
     [newImage setImage:chosenImage];
-    previewImages.contentSize = CGSizeMake([Styles thumbnailSize]*[inputImages count], [Styles thumbnailSize]);
+    
+    newImage.layer.cornerRadius = newImage.bounds.size.width/2;
+    newImage.clipsToBounds = YES;
+    newImage.contentMode = UIViewContentModeScaleAspectFill;
+    previewImages.contentSize = CGSizeMake([Styles thumbnailSize]*[inputImages count]+2*([inputImages count]-1), [Styles thumbnailSize]);
     [previewImages addSubview:newImage];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];

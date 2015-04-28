@@ -27,16 +27,16 @@ static float screenHeight = 0;
     return [UIColor whiteColor];
 }
 +(UIColor*)loginBackgroundColor{
-    return [UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:.5f];
+    return [UIColor colorWithRed:1 green:1 blue:1 alpha:.5f];
 }
 +(UIColor*)postTextBackgroundColor{
-    return [UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:.5f];
+    return [UIColor colorWithRed:1 green:1 blue:1 alpha:.5f];
 }
 +(UIColor*)postContentBackgroundColor{
-    return [UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:.5f];
+    return [UIColor colorWithRed:0 green:0 blue:0 alpha:.9f];
 }
 +(UIColor*)contentBackgroundColor{
-    return [UIColor colorWithRed:255.0f green:255.0f blue:255.0f alpha:.5f];
+    return [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
 }
 +(UIColor*)mainColor{
     return [UIColor colorWithRed:.1f green:.2f blue:.9f alpha:1.0f];
