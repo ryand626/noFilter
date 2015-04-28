@@ -37,6 +37,10 @@
 +(float)AppHeight;
 +(float)AppWidth;
 
++(float)thumbnailSize;
++(float)postMakerHeight;
++(float)thumbnailPreviewOffset;
+
 // Padding
 +(int)postSpacing;
 +(int)contentSpacing;

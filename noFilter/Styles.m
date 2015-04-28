@@ -18,7 +18,7 @@ static float screenHeight = 0;
     return [UIColor whiteColor];
 }
 +(UIColor*)buttonColor{
-    return [UIColor blueColor];
+    return [UIColor blackColor];
 }
 +(UIColor*)postColor{
     return [UIColor brownColor];
@@ -39,10 +39,10 @@ static float screenHeight = 0;
     return screenWidth;
 }
 +(float)postWidth{
-    return screenWidth*.80;
+    return screenWidth * .80;
 }
 +(float)postElementWidth{
-    return screenWidth*.60;
+    return screenWidth * .60;
 }
 
 +(float)AppHeight{
@@ -67,6 +67,15 @@ static float screenHeight = 0;
     return screenWidth * .1;
 }
 
++(float)thumbnailSize{
+    return screenWidth * .1;
+}
++(float)postMakerHeight{
+    return screenHeight * .20;
+}
++(float)thumbnailPreviewOffset{
+    return screenWidth * .1;
+}
 // Padding
 +(int)postSpacing{
     return 10;

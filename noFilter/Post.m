@@ -25,6 +25,7 @@ float contentHeight;
     userImage.layer.cornerRadius=[Styles userButtonSize]/2;
     userImage.clipsToBounds = YES;
     [userImage setBackgroundColor:[UIColor redColor]];
+    [userImage addTarget:self action:@selector(loadUserPage:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:userImage];
     offset += ([Styles userButtonSize] + [Styles postElementSpacing]);
 
@@ -58,6 +59,10 @@ float contentHeight;
         [self commonInit];
     }
     return self;
+}
+
+-(IBAction)loadUserPage:(UIButton *)sender{
+    NSLog(@"LOADING USER");
 }
 
 -(void)resizeToFitSubviews:(UIView*)view{
@@ -139,7 +144,7 @@ float contentHeight;
 
 -(void)offsetBy:(float)offset{
     CGRect frame = [self frame];
-    frame.origin.y += offset;
+    frame.origin.y = offset;
     [self setFrame:frame];
 }
 

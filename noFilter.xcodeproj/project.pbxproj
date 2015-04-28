@@ -18,6 +18,7 @@
 		941BAD311AEDC26500A2D124 /* Styles.m in Sources */ = {isa = PBXBuildFile; fileRef = 941BAD301AEDC26500A2D124 /* Styles.m */; };
 		949483DD1AEDF25D00294372 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 949483DC1AEDF25D00294372 /* Post.m */; };
 		949483DF1AEE126B00294372 /* Fallout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 949483DE1AEE126B00294372 /* Fallout.jpg */; };
+		94A638921AEF07BD00FB3D3E /* PostMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A638911AEF07BD00FB3D3E /* PostMaker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		949483DB1AEDF25D00294372 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		949483DC1AEDF25D00294372 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		949483DE1AEE126B00294372 /* Fallout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fallout.jpg; sourceTree = "<group>"; };
+		94A638901AEF07BD00FB3D3E /* PostMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostMaker.h; sourceTree = "<group>"; };
+		94A638911AEF07BD00FB3D3E /* PostMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostMaker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 				941BAD091AEDB4CA00A2D124 /* LogIn.m */,
 				941BAD291AEDB72F00A2D124 /* Feed.h */,
 				941BAD2A1AEDB78300A2D124 /* Feed.m */,
+				94A638901AEF07BD00FB3D3E /* PostMaker.h */,
+				94A638911AEF07BD00FB3D3E /* PostMaker.m */,
 				949483DB1AEDF25D00294372 /* Post.h */,
 				949483DC1AEDF25D00294372 /* Post.m */,
 				941BAD0B1AEDB4CA00A2D124 /* Main.storyboard */,
@@ -243,6 +248,7 @@
 				941BAD311AEDC26500A2D124 /* Styles.m in Sources */,
 				941BAD2B1AEDB78300A2D124 /* Feed.m in Sources */,
 				941BAD071AEDB4CA00A2D124 /* AppDelegate.m in Sources */,
+				94A638921AEF07BD00FB3D3E /* PostMaker.m in Sources */,
 				941BAD041AEDB4CA00A2D124 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,11 +7,21 @@
 //
 
 #import "Styles.h"
+#import "PostMaker.h"
 
-@interface Feed : UIViewController{
+@interface Feed : UIViewController 
+{
+    // ==============User interface================
     UILabel* banner;
+    
     UIButton* logout;
+    
     UIScrollView* PostTable;
+
+    UIView* postCreator;
+    PostMaker* UIPostMaker;
+    
+    // =================Variables==================
     NSMutableArray *posts;
 }
 @end
