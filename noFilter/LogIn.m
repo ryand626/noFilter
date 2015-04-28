@@ -83,7 +83,6 @@
 }
 
 -(UIButton*)createButton:(UIButton*)Button withTitle:(NSString*)title{
-    // Log in Button
 
     Button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, [Styles buttonWidth], [Styles buttonHeight])];
     [Button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -98,14 +97,11 @@
     Button.clipsToBounds = YES;
     [self.view addSubview:Button];
 
-    NSLog(@"Button %@", Button);
     return Button;
 }
 
 -(void) buttonClicked:(UIButton*)sender
 {
-    NSLog(@"Sender: %@",sender);
-    NSLog(@"login: %@",login);
     // Switch views
     if (sender == login){
         UIViewController * vc = [[Feed alloc] init];
