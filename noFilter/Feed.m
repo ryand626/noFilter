@@ -145,7 +145,8 @@
     }else if (sender == banner){
         UIViewController * vc = [[Feed alloc] init];
         [self presentViewController:vc animated:NO completion:nil];
-    }else{
+    }
+    else{
         UIViewController * vc = [[Profile alloc] init];
         [self presentViewController:vc animated:YES completion:nil];
     }
